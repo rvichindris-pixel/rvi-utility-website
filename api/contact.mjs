@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   try {
     await resend.emails.send({
       from: 'RVI Utility Website <info@rviutility.co.uk>',
-      to: 'info@rviutility.co.uk',
+      to: 'rvichindris@gmail.com',
       replyTo: email,
       subject: `New quote request from ${name}${company ? ' (' + company + ')' : ''}`,
       text: `Name: ${name}\nCompany: ${company || 'Not provided'}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\nWork type: ${type || 'Not specified'}\n\nDetails:\n${details}`
