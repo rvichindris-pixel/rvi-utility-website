@@ -51,9 +51,9 @@
   .nav-cta{flex:none; background:var(--ink); color:#fff; border:none; padding:10px 18px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none;}
   @media (max-width:780px){ .nav-links{display:none;} }
 
-  .hero{position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; background-image:url('images/hero.jpg'); background-size:cover; background-position:center; padding:80px 24px;}
-  .hero::before{content:''; position:absolute; inset:0; background:linear-gradient(rgba(255,255,255,.25), rgba(255,255,255,.45)); pointer-events:none;}
-  .hero-panel{position:relative; z-index:1; max-width:700px; width:100%; background:rgba(255,255,255,.55); backdrop-filter:blur(14px) saturate(1.2); -webkit-backdrop-filter:blur(14px) saturate(1.2); border:1px solid rgba(255,255,255,.7); border-radius:20px; box-shadow:0 8px 40px rgba(0,0,0,.12); padding:clamp(2rem,5vw,3.5rem);}
+  .hero{position:relative; overflow:hidden; clip-path:inset(0); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:80px 24px;}
+  .hero::before{content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(rgba(255,255,255,.25), rgba(255,255,255,.45)); pointer-events:none;}
+  .hero-panel{position:relative; z-index:2; max-width:700px; width:100%; background:rgba(255,255,255,.55); backdrop-filter:blur(14px) saturate(1.2); -webkit-backdrop-filter:blur(14px) saturate(1.2); border:1px solid rgba(255,255,255,.7); border-radius:20px; box-shadow:0 8px 40px rgba(0,0,0,.12); padding:clamp(2rem,5vw,3.5rem);}
   .eyebrow{font-family:var(--mono); font-size:14px; letter-spacing:.16em; text-transform:uppercase; color:var(--orange); font-weight:800; display:flex; align-items:center; gap:10px; margin-bottom:18px;}
   .eyebrow::before{content:''; width:24px; height:1px; background:var(--orange);}
   h1{font-family:var(--display); font-weight:800; font-size:clamp(30px,4.6vw,48px); line-height:1.08; margin:0 0 20px; color:var(--ink);}
@@ -69,17 +69,20 @@
   .btn-dark:hover{transform:translateY(-2px); box-shadow:0 10px 22px rgba(27,20,32,.3);}
 
   /* PHOTO BANDS */
-  .photo-band{position:relative; background-size:cover; background-position:center; background-repeat:no-repeat; padding:80px 24px;}
-  .photo-band::before{content:''; position:absolute; inset:0; background:linear-gradient(rgba(255,255,255,.22), rgba(255,255,255,.38)); pointer-events:none;}
-  .photo-band .wrap{position:relative; z-index:1;}
+  .photo-band{position:relative; overflow:hidden; clip-path:inset(0); min-height:65vh; padding:80px 24px;}
+  .photo-band::before{content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(rgba(255,255,255,.22), rgba(255,255,255,.38)); pointer-events:none;}
+  .photo-band .wrap{position:relative; z-index:2;}
+  .band-bg{position:fixed; inset:0; z-index:0; background-size:cover; background-position:center; background-repeat:no-repeat;}
   /* GLASS PANELS */
   .glass{background:rgba(255,255,255,.58); backdrop-filter:blur(14px) saturate(1.2); -webkit-backdrop-filter:blur(14px) saturate(1.2); border:1px solid rgba(255,255,255,.7); border-radius:20px; box-shadow:0 8px 40px rgba(0,0,0,.12); padding:clamp(1.5rem,4vw,3rem);}
   .glass h2{font-family:var(--display); font-weight:800; font-size:clamp(24px,3.2vw,34px); color:var(--ink); margin:14px 0 0;}
+  .trusted, section:not(.photo-band), footer{position:relative; z-index:2;}
+  #services, #coverage{background:var(--bg);}
   @media (max-width:768px){
     .hero{padding:60px 16px;}
     .hero-panel{backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); padding:1.5rem; margin:0;}
     .glass{backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); padding:1.25rem;}
-    .photo-band{padding:48px 16px;}
+    .photo-band{min-height:50vh; padding:48px 16px;}
   }
 
   .trusted{background:var(--paper); border-bottom:1px solid var(--line); padding:22px 24px;}
@@ -175,6 +178,7 @@
 <main id="top">
 
   <section class="hero">
+    <div class="band-bg" style="background-image:url('images/hero.jpg')"></div>
     <div class="hero-panel">
       <p class="eyebrow">Telecoms &amp; Civil Infrastructure Specialists</p>
       <h1>Groundworks and street works done <span>right, first time.</span></h1>
@@ -195,7 +199,8 @@
     </div>
   </div>
 
-  <div class="photo-band" style="background-image:url('images/work-1.jpg')">
+  <div class="photo-band">
+    <div class="band-bg" style="background-image:url('images/work-1.jpg')"></div>
     <div class="wrap">
       <div class="glass section-head reveal">
         <p class="eyebrow">What we do</p>
@@ -245,7 +250,8 @@
     </div>
   </section>
 
-  <div class="photo-band" style="background-image:url('images/work-2.jpg')">
+  <div class="photo-band">
+    <div class="band-bg" style="background-image:url('images/work-2.jpg')"></div>
     <div class="wrap">
       <div class="glass section-head reveal">
         <p class="eyebrow">Where we work</p>
@@ -292,7 +298,8 @@
     </div>
   </section>
 
-  <section id="quote" class="photo-band" aria-labelledby="quote-head" style="background-image:url('images/work-3.jpg')">
+  <section id="quote" class="photo-band" aria-labelledby="quote-head">
+    <div class="band-bg" style="background-image:url('images/work-3.jpg')"></div>
     <div class="wrap">
       <div class="glass reveal" style="max-width:680px">
         <p class="eyebrow">Get in touch</p>
