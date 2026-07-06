@@ -306,7 +306,7 @@
             </div>
             <div class="field full"><label for="qDetails">Job details</label><textarea id="qDetails" placeholder="Location, scope, timeframe"></textarea></div>
           </div>
-          <button type="submit" class="btn btn-dark">Send request (demo)</button>
+          <button type="submit" class="btn btn-dark">Request a Quote</button>
           <div class="form-confirm" id="quoteConfirm">
             <span class="dot"></span>
             <div><strong>Quote request received</strong><span>Thanks — your request has been sent. We'll come back to you within one working day.</span></div>
@@ -372,6 +372,8 @@
       if (res.ok) {
         confirm.classList.add('show');
         e.target.reset();
+        btn.textContent = 'Request a Quote';
+        btn.disabled = false;
       } else {
         btn.textContent = 'Something went wrong — please try again';
         btn.disabled = false;
