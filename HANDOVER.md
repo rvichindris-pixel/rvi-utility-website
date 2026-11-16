@@ -18,7 +18,6 @@ Other files in the repo:
 - `scripts/make-og-image.mjs` regenerates `images/og-image.jpg` from `images/work-4.jpg`.
 - `scripts/watermark.mjs` writes logo-stamped copies of the photos to `images-branded/`. The live site does not currently use these.
 - `new-logo-clean.png` is the source logo used by the watermark script.
-- `site-full.html`, `rvi-coming-soon.html`, `coming-soon-backup.html` are **old copies** of the site and the coming-soon page. They are **publicly reachable** (for example `rviutility.co.uk/site-full.html`). Edit `index.html` only. These three files can safely be deleted.
 
 ## 2. Environment variables
 
